@@ -1,23 +1,13 @@
+#define TINYUBSAN_PRINT printf
 #include <stdarg.h>
 #include <stdio.h>
+#include <tinyubsan.c>
 
-void print(const char *s, ...)
-{
-    va_list ap;
-    va_start(ap, s);
+int main() {
 
-    printf("\033[1;31merror\033[0m ");
+  int *ptr = NULL;
 
-    vprintf(s, ap);
+  printf("%d", *ptr);
 
-    va_end(ap);
-}
-int main()
-{
-
-    int *ptr = NULL;
-
-    printf("%d", *ptr);
-
-    return 0;
+  return 0;
 }

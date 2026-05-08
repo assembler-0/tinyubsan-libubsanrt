@@ -1,5 +1,8 @@
-* TinyUBsan
-tinyUBsan is a tiny libubsan implementation for hobby kernels
+* tinyUBSan
+tinyUBSan is a tiny libUBSan implementation for freestanding targets
 
-** How to use in your project
-To use tinyubsan in your project, you only need a function named =print= which accepts printf-like formatting; You can then add tinyubsan.c to your project!
+** Usage
+it is recommended to either add =tinyubsan.c= to your build system or =#include= it.
+The macro =TINYUBSAN_PRINT= is expected to be defined and should be a function that accepts printf-like formatting.
+The macro =TINYUBSAN_TRAP= can be defined to trap on errors.
+

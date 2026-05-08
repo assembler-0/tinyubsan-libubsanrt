@@ -2,10 +2,10 @@ TARGET ?= tinyubsan
 SRC_DIRS ?= ./src
 CC = gcc
 
-SRCS := src/tinyubsan.c tests/test.c
+SRCS := tests/test.c
 OBJS := $(addsuffix .o,$(basename $(SRCS)))
 
-CFLAGS ?= -ggdb -fsanitize=undefined -Wall -Wextra -Wno-builtin-declaration-mismatch
+CFLAGS ?= -ggdb -fsanitize=undefined -Wall -Wextra -Wno-builtin-declaration-mismatch -I.
 %.o: %.c
 	@echo CC $<
 	@$(CC) $(CFLAGS) -c $< -o $@
