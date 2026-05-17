@@ -85,6 +85,11 @@ struct tu_pointer_overflow_data {
   struct tu_type_descriptor *type;
 };
 
+struct tu_function_type_mismatch_data {
+    struct tu_source_location location;
+    struct tu_type_descriptor *type;
+};
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -169,6 +174,9 @@ void __ubsan_handle_builtin_unreachable(struct tu_unreachable_data *data) {
 }
 void __ubsan_handle_invalid_builtin(struct tu_invalid_builtin_data *data) {
   report("invalid builtin", data->location, NULL);
+}
+void __ubsan_handle_function_type_mismatch(struct tu_function_type_mismatch_data *data) {
+  report("function type mismatch", data->location, data->type);
 }
 
 void __ubsan_handle_add_overflow_abort(struct tu_overflow_data *data) {
