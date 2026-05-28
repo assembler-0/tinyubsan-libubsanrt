@@ -1,7 +1,15 @@
-#define TINYUBSAN_PRINT printf
 #include <stdarg.h>
 #include <stdio.h>
-#include <tinyubsan.c>
+#include <stdlib.h>
+#include <tinyubsan.h>
+
+UBSAN_HANDLER void tinyubsan_log(const char *fmt) {
+    printf("%s", fmt);
+} 
+
+[[noreturn]] UBSAN_HANDLER void tinyubsan_trap() {
+    abort();
+}
 
 int main() {
 

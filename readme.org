@@ -1,8 +1,6 @@
-* tinyUBSan
+* tinyUBSan (libubsanrt)
 tinyUBSan is a tiny libUBSan implementation for freestanding targets
 
 ** Usage
-it is recommended to either add =tinyubsan.c= to your build system or =#include= it.
-The macro =TINYUBSAN_PRINT= is expected to be defined and should be a function that accepts printf-like formatting.
-The macro =TINYUBSAN_TRAP= can be defined to trap on errors.
-
+it is recommended to either add =tinyubsan.c= to your build system, or compile it as a dynamic/static library and link against your desired target
+all the struct definitions and hander prototpes are in =tinyubsan.h=.
